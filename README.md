@@ -28,12 +28,19 @@ Utilice un lector de pantalla y podrá escuchar la lectura de la aplicación.
 ## Instrucciones de instalación y ejecución
 Primero es necesario correr el backend de la aplicación, para ello, se debe instalar Docker y Docker Compose.
 * Realice	un	fork	del	siguiente	repositorio:	
+     
      https://github.com/isis3710-uniandes/bookstore-back
+
 • Realice	el	build	de	la	imagen	docker	usando	el	comando:	
+     
      docker	build ./ -t	bookstore
+
 • Ejecute	la	imagen	usando	el	comando:
+     
      docker	run	-d	-p	127.0.0.1:8080:8080 bookstore
+
 • VeriTique	que	el	API	quedo	funcioando	ingresando		a	la	siguiente	url:
+     
      http://127.0.0.1:8080/api/authors
 
 Luego, para correr la aplicación localmente, se debe instalar Node.js y npm, y luego desde la terminal de comandos navegar a la carpeta raíz del proyecto y ejecutar los siguientes comandos:
