@@ -20,14 +20,13 @@ Cada página se encarga de renderizar la información correspondiente y de manej
 
 
 ## Accesibilidad
-Para la parte B se decidio añadir accesibilidad a la aplicación mediante el desarrollo semántico de HTML que permite navegación con Teclado y etiquetas ARIA.
-
+Para la parte B se decidio añadir accesibilidad a la aplicación mediante el desarrollo semántico de HTML que permite navegación con Teclado y además el uso etiquetas ARIA para permitir a los lectores de pantalla de navegar por la aplicación.
 
 ## Instrucciones de instalación y ejecución
-Para correr la aplicación localmente, se debe instalar Node.js y npm, y luego ejecutar los siguientes comandos en la terminal:
+Para correr la aplicación localmente, se debe instalar Node.js y npm, y luego desde la terminal de comandos navegar a la carpeta raíz del proyecto y ejecutar los siguientes comandos:
 
-npm install
-npm run dev
+- npm install
+- npm run dev
 
 El comando npm install instala las dependencias necesarias para la aplicación, mientras que npm run dev inicia el servidor de desarrollo y se carga la aplicación en el navegador.
 Se puede acceder a la aplicación en http://localhost:3000/.

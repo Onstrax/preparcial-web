@@ -22,14 +22,21 @@ export default function DetalleAutorPage() {
           width={150}
           height={450}
           className="w-40 h-55 object-cover rounded-xl mx-auto"
+          aria-label={`Imagen del autor ${authorSelection.name}`}
         />
-        <h1 className="text-2xl font-bold text-black text-center">
+        <h1
+          className="text-2xl font-bold text-black text-center"
+          aria-label="Nombre del autor">
           {authorSelection.name}
         </h1>
-        <h3 className="text-l font-bold text-black text-center mb-4">
+        <h3
+          className="text-l font-bold text-black text-center mb-4"
+          aria-label="Fecha de nacimiento del autor">
           Fecha de nacimiento: {authorSelection.birthDate}
         </h3>
-        <p className="text-sm text-black text-left items-between center-center mb-2">
+        <p
+          className="text-sm text-black text-left items-between center-center mb-2"
+          aria-label="Descripción del autor">
           {authorSelection.description}
         </p>
         <h3 className="text-sm font-bold text-black text-left items-between center-center mb-2">
@@ -40,7 +47,10 @@ export default function DetalleAutorPage() {
             No hay libros disponibles
           </p>
         ) : (
-          <div className="mx-auto grid max-w-screen-lg max-h-screen-lg gap-3 sm:grid-cols-1 lg:grid-cols-4 overflow-y-auto">
+          <div
+            className="mx-auto grid max-w-screen-lg max-h-screen-lg gap-3 sm:grid-cols-1 lg:grid-cols-4 overflow-y-auto"
+            aria-label="Lista de libros publicados"
+            role="list">
             {authorSelection.books.map((b) => (
               <BookCard key={b.id} book={b} className="" />
             ))}
@@ -54,15 +64,21 @@ export default function DetalleAutorPage() {
             No hay premios disponibles
           </p>
         ) : (
-          <div className="mx-auto grid max-w-screen-lg max-h-screen-lg gap-3 sm:grid-cols-1 lg:grid-cols-4 overflow-y-auto">
+          <div
+            className="mx-auto grid max-w-screen-lg max-h-screen-lg gap-3 sm:grid-cols-1 lg:grid-cols-4 overflow-y-auto"
+            aria-label="Lista de premios recibidos"
+            role="list">
             {authorSelection.prizes.map((p) => (
               <PrizeCard key={p.id} prize={p} className="" />
             ))}
           </div>
         )}
       </div>
-      <Link href={"/"} className="w-100">
-        <button className="w-full cursor-pointer py-3 rounded-lg font-bold text-white bg-blue-500 transition duration-300">
+      <Link href={"/"} className="w-100" aria-labelledby="home">
+        <button
+          id="home"
+          className="w-full cursor-pointer py-3 rounded-lg font-bold text-white bg-blue-500 transition duration-300"
+          aria-labelledby="home">
           Volver a inicio
         </button>
       </Link>

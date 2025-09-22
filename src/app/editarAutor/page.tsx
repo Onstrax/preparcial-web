@@ -45,15 +45,20 @@ export default function Formulario() {
   return (
     <div className="flex items-center justify-center py-8 h-screen bg-green-50 px-4 py-8 flex flex-col">
       <form
+        aria-invalid={!isValid}
+        aria-label="Formulario de edición de autor"
         onSubmit={handleSubmit}
         className="p-9 bg-white rounded-xl shadow-xl w-full max-w-sm border border-gray-200 mb-4">
-        <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">
+        <h2
+          className="text-2xl font-bold mb-6 text-center text-gray-800"
+          aria-label="Titulo del formulario">
           Editando un autor
         </h2>
         <div className="mb-4">
           <label
             htmlFor="nombre"
-            className="block text-gray-700 font-medium mb-1">
+            className="block text-gray-700 font-medium mb-1"
+            aria-labelledby="name">
             Nombre del autor
           </label>
           <input
@@ -69,6 +74,7 @@ export default function Formulario() {
         </div>
         <div className="mb-4">
           <label
+            aria-labelledby="birthDate"
             htmlFor="birthDate"
             className="block text-gray-700 font-medium mb-1">
             Fecha de nacimiento del autor
@@ -86,6 +92,7 @@ export default function Formulario() {
         </div>
         <div className="mb-4">
           <label
+            aria-labelledby="description"
             htmlFor="description"
             className="block text-gray-700 font-medium mb-1">
             Descripción del autor
@@ -103,6 +110,7 @@ export default function Formulario() {
         </div>
         <div className="mb-4">
           <label
+            aria-labelledby="image"
             htmlFor="imagen"
             className="block text-gray-700 font-medium mb-1">
             Imagen del autor
@@ -120,7 +128,10 @@ export default function Formulario() {
         </div>
         <div>
           <button
+            aria-invalid={!isValid}
             type="submit"
+            aria-label="Guardar"
+            aria-disabled={!isValid}
             disabled={!isValid}
             className={`w-full py-3 rounded-lg font-bold text-white transition duration-300 ${
               !isValid
@@ -131,8 +142,10 @@ export default function Formulario() {
           </button>
         </div>
       </form>
-      <Link href={"/"} className="w-100">
-        <button className="w-full cursor-pointer py-3 rounded-lg font-bold text-white bg-blue-500 transition duration-300">
+      <Link href={"/"} className="w-100" aria-labelledby="home">
+        <button
+          id="home"
+          className="w-full cursor-pointer py-3 rounded-lg font-bold text-white bg-blue-500 transition duration-300">
           Volver a inicio
         </button>
       </Link>

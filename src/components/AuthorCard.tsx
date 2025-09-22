@@ -28,10 +28,12 @@ export default function AuthorCard({
                 ? "bg-red-400 cursor-not-allowed"
                 : "bg-gray-600 hover:bg-green-700 cursor-pointer"
             }`}
-            onClick={() => toogleFavourite(autor)}>
+            onClick={() => toogleFavourite(autor)}
+            aria-label={`Añadir autor ${autor.name} a favoritos`}
+            aria-pressed={favoriteAuthors.includes(autor)}>
             ❤
           </button>
-          <Link href={href} onClick={onClick}>
+          <Link href={href} onClick={onClick} aria-labelledby="name">
             <div className="flex items-start gap-3">
               <div className="flex-1">
                 <Image
@@ -40,29 +42,49 @@ export default function AuthorCard({
                   width={150}
                   height={50}
                   className="w-40 h-55 object-cover rounded-xl mx-auto"
+                  aria-label={`Imagen del autor ${autor.name}`}
                 />
-                <h3 className="font-extrabold tracking-tight text-[17px] leading-6 text-black text-center">
+                <h3
+                  className="font-extrabold tracking-tight text-[17px] leading-6 text-black text-center"
+                  id="name"
+                  aria-label={`Nombre del autor ${autor.name}`}>
                   {autor.name}
                 </h3>
-                <p className="text-[13px] leading-5 text-black text-center">
+                <p
+                  className="text-[13px] leading-5 text-black text-center"
+                  aria-label={`Fecha de nacimiento del autor ${autor.name}`}>
                   <span className="font-semibold">{autor.birthDate}</span>
                 </p>
-                <Link href={`/detalleAutor`}>
+                <Link
+                  href={`/detalleAutor`}
+                  aria-label={`Ver detalles del autor ${autor.name}`}
+                  id="details">
                   <button
                     className="bg-yellow-500 border-1 border-black/15 cursor-pointer text-black px-4 py-2 rounded-xl w-full mb-2"
-                    onClick={() => setAuthorSelection(autor.id)}>
+                    onClick={() => setAuthorSelection(autor.id)}
+                    aria-labelledby="details">
                     Ver
                   </button>
                 </Link>
-                <Link href={`/editarAutor`}>
+                <Link
+                  href={`/editarAutor`}
+                  aria-label={`Editar autor ${autor.name}`}
+                  id="edit">
                   <button
+                    aria-labelledby="edit"
                     className="bg-blue-500 border-1 border-black/15 cursor-pointer text-black px-4 py-2 rounded-xl w-full mb-2"
                     onClick={() => setAuthorSelection(autor.id)}>
                     Editar
                   </button>
                 </Link>
-                <Link href={"/"} onClick={() => removeAuthor(autor)}>
-                  <button className="bg-red-500 border-1 border-black/15 cursor-pointer text-black px-4 py-2 rounded-xl w-full">
+                <Link
+                  href={"/"}
+                  onClick={() => removeAuthor(autor)}
+                  aria-label={`Eliminar autor ${autor.name}`}
+                  id="delete">
+                  <button
+                    aria-labelledby="delete"
+                    className="bg-red-500 border-1 border-black/15 cursor-pointer text-black px-4 py-2 rounded-xl w-full">
                     Eliminar
                   </button>
                 </Link>

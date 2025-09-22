@@ -10,7 +10,9 @@ export default function HomePage() {
   return (
     <div className="flex-1 bg-green-50 px-4 py-8 flex flex-col">
       <section className="mx-auto w-full max-w-screen-xl min-h-full p-4 md:p-6 bg-white-500">
-        <h1 className="mb-3 text-center text-2xl font-bold text-black">
+        <h1
+          className="mb-3 text-center text-2xl font-bold text-black"
+          aria-label="Titulo de la página">
           Autores
         </h1>
         <Link
@@ -28,7 +30,10 @@ export default function HomePage() {
             No hay autores disponibles
           </p>
         ) : (
-          <div className="mx-auto grid max-w-screen-lg max-h-screen-lg gap-3 sm:grid-cols-1 lg:grid-cols-5">
+          <div
+            className="mx-auto grid max-w-screen-lg max-h-screen-lg gap-3 sm:grid-cols-1 lg:grid-cols-5"
+            role="list"
+            aria-label="Lista de autores">
             {authors.map((a) => (
               <AuthorCard
                 key={a.id}
