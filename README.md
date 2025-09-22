@@ -22,6 +22,9 @@ Cada página se encarga de renderizar la información correspondiente y de manej
 ## Accesibilidad
 Para la parte B se decidio añadir accesibilidad a la aplicación mediante el desarrollo semántico de HTML que permite navegación con Teclado y además el uso etiquetas ARIA para permitir a los lectores de pantalla de navegar por la aplicación.
 
+Para probarlo, utilice la tecla de acceso de teclado "Tab" para navegar por la aplicación y la tecla de acceso de teclado "Enter" para presionar los botones (como crear, editar, eliminar, etc.).
+Utilice un lector de pantalla y podrá escuchar la lectura de la aplicación.
+
 ## Instrucciones de instalación y ejecución
 Para correr la aplicación localmente, se debe instalar Node.js y npm, y luego desde la terminal de comandos navegar a la carpeta raíz del proyecto y ejecutar los siguientes comandos:
 

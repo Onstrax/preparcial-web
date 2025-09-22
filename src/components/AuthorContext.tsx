@@ -202,6 +202,12 @@ export function AuthorProvider({ children }: { children: React.ReactNode }) {
         prevAuthor.id === author.id ? author : prevAuthor
       )
     );
+    setFavoriteAuthors((prevAuthors) =>
+      prevAuthors.includes(author) ? prevAuthors.filter((a) => a.id === author.id) : [...prevAuthors, author]
+    );
+    setFavoriteAuthors((prevAuthors) =>
+      prevAuthors.includes(author) ? prevAuthors.filter((a) => a.id !== author.id) : [...prevAuthors, author]
+    );
     setAuthorSelection(author.id);
   };
 
