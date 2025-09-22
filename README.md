@@ -5,7 +5,7 @@ Se navega utilizando la librería de navegación de Next.js basada en rutas que 
 
 
 ## Funcionamiento de la aplicación
-La página principal contiene la lista de autores y permite a los usuarios añadir, editar y eliminar autores. Además, permite a los usuarios añadir autores a sus favoritos y ver los autores favoritos.
+La página principal contiene la lista de autores y permite a los usuarios añadir, ver, editar y eliminar autores. Además, permite a los usuarios añadir autores a sus favoritos y ver los autores favoritos.
 
 Al hacer clic en un autor, se muestra su información detallada, incluyendo su imagen, nombre, fecha de nacimiento, descripción, los libros que ha publicado y las premiaciones que ha recibido.
 
@@ -14,7 +14,7 @@ Por defefecto, el formualario no es válido y se le hace saber al usuario median
 
 Para la edición de autores, se muestra un formulario similar al crear autores, pero con los campos rellenados con los datos del autor seleccionado.
 
-Toda la lógica del CRUD se maneja en el archivo AuthorContext.tsx, que se encarga de manejar los datos de los autores, los libros, las premiaciones y las organizaciones. Este archivo es el conetxto global donde viven los valores de estado y los efectos de cambio de estado.
+Toda la lógica del CRUD se maneja en el archivo AuthorContext.tsx, que se encarga de manejar los datos de los autores, los libros, las premiaciones, las editoriales y las organizaciones. Este archivo es el conetxto global donde viven los valores de estado y los efectos de cambio de estado.
 
 Cada página se encarga de renderizar la información correspondiente y de manejar los cambios de estado en la aplicación mediante el consumo del contexto AuthorContext.
 
@@ -39,7 +39,7 @@ Primero es necesario correr el backend de la aplicación, para ello, se debe ins
      
      docker	run	-d	-p	127.0.0.1:8080:8080 bookstore
 
-• VeriTique	que	el	API	quedo	funcioando	ingresando		a	la	siguiente	url:
+• Verifique	que	el	API	quedo	funcionando	ingresando		a	la	siguiente	url:
      
      http://127.0.0.1:8080/api/authors
 
