@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Arquitectura de la aplicación
+La arquitectura de la aplicación se basa en el patrón de diseño de componentes. Se crean componentes reutilizables que se pueden utilizar en diferentes partes de la aplicación.
 
-## Getting Started
+Se navega utilizando la librería de navegación de Next.js basada en rutas que se crean con carpetas y archivos page.tsx.
 
-First, run the development server:
 
-```bash
+## Funcionamiento de la aplicación
+La página principal contiene la lista de autores y permite a los usuarios añadir, editar y eliminar autores. Además, permite a los usuarios añadir autores a sus favoritos y ver los autores favoritos.
+
+Al hacer clic en un autor, se muestra su información detallada, incluyendo su imagen, nombre, fecha de nacimiento, descripción, los libros que ha publicado y las premiaciones que ha recibido.
+
+Para la creación de autores, se muestra un formulario que permite a los usuarios ingresar los datos del autor, incluyendo su nombre, fecha de nacimiento, descripción y imagen. La imagen debe ser una URL válida y debe tener una extensión de archivo de imagen válida (jpg, png, etc.).
+Por defefecto, el formualario no es válido y se le hace saber al usuario mediante la deshabilitación del botón de envío.
+
+Para la edición de autores, se muestra un formulario similar al crear autores, pero con los campos rellenados con los datos del autor seleccionado.
+
+Toda la lógica del CRUD se maneja en el archivo AuthorContext.tsx, que se encarga de manejar los datos de los autores, los libros, las premiaciones y las organizaciones. Este archivo es el conetxto global donde viven los valores de estado y los efectos de cambio de estado.
+
+Cada página se encarga de renderizar la información correspondiente y de manejar los cambios de estado en la aplicación mediante el consumo del contexto AuthorContext.
+
+
+## Accesibilidad
+Para la parte B se decidio añadir accesibilidad a la aplicación mediante el desarrollo semántico de HTML que permite navegación con Teclado y etiquetas ARIA.
+
+
+## Instrucciones de instalación y ejecución
+Para correr la aplicación localmente, se debe instalar Node.js y npm, y luego ejecutar los siguientes comandos en la terminal:
+
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+El comando npm install instala las dependencias necesarias para la aplicación, mientras que npm run dev inicia el servidor de desarrollo y se carga la aplicación en el navegador.
+Se puede acceder a la aplicación en http://localhost:3000/.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Requisitos
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Node.js
+- npm

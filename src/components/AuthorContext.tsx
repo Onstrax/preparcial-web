@@ -54,6 +54,10 @@ interface AuthorContextType {
   authors: Author[];
   setAuthors: (authors: Author[]) => void;
 
+  favoriteAuthors: Author[];
+  setFavoriteAuthors: (authors: Author[]) => void;
+  toogleFavourite: (author: Author) => void;
+
   authorSelection: Author | null;
   setAuthorSelection: (selectionId: number | null) => void;
   clearAuthorSelection: () => void;
@@ -95,6 +99,7 @@ export const useAuthorContext = () => {
 export function AuthorProvider({ children }: { children: React.ReactNode }) {
   // Author list
   const [authors, setAuthors] = useState<Author[]>([]);
+  const [favoriteAuthors, setFavoriteAuthors] = useState<Author[]>([]);
 
   // States
   const [nextAuthorId, setNextAuthorId] = useState(-1);
@@ -168,6 +173,13 @@ export function AuthorProvider({ children }: { children: React.ReactNode }) {
     setAuthorSelectionState(null);
   };
 
+  const toogleFavourite = (author: Author) => {
+    const newFavoriteAuthors = favoriteAuthors.includes(author)
+      ? favoriteAuthors.filter((a) => a.id !== author.id)
+      : [...favoriteAuthors, author];
+    setFavoriteAuthors(newFavoriteAuthors);
+  };
+
   // Helper functions to add/remove/update entities
   const addAuthor = (author: Author) => {
     setAuthors((prevAuthors) => [...prevAuthors, author]);
@@ -176,6 +188,9 @@ export function AuthorProvider({ children }: { children: React.ReactNode }) {
 
   const removeAuthor = (author: Author) => {
     setAuthors((prevAuthors) =>
+      prevAuthors.filter((prevAuthor) => prevAuthor.id !== author.id)
+    );
+    setFavoriteAuthors((prevAuthors) =>
       prevAuthors.filter((prevAuthor) => prevAuthor.id !== author.id)
     );
     clearAuthorSelection();
@@ -287,6 +302,10 @@ export function AuthorProvider({ children }: { children: React.ReactNode }) {
         addAuthor,
         removeAuthor,
         updateAuthor,
+
+        favoriteAuthors,
+        setFavoriteAuthors,
+        toogleFavourite,
 
         nextBookId,
         setNextBookId,
